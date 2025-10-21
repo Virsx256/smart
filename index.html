@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة Smart - الكيمياء بشكل مختلف</title>
+  <meta name="description" content="منصة Smart - الكيمياء بشكل مختلف. تعلم الكيمياء بطريقة عصرية وممتعة بإشراف الأستاذ محمد عبدالصبور.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #f8fbff, #e3f2ff, #f8fbff);
+      background-size: 300% 300%;
+      animation: bgMove 10s ease infinite;
+      color: #0d1b2a;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 40px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header img {
+      width: 130px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 3px 10px rgba(0,0,0,0.1));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #0078f3;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      color: #333;
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+    }
+
+    header p {
+      max-width: 650px;
+      color: #444;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #0078f3, #00b4ff);
+      color: white;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0,120,243,0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,120,243,0.4);
+    }
+
+    section {
+      text-align: center;
+      padding: 80px 20px;
+      background: white;
+      margin: 50px auto;
+      border-radius: 25px;
+      max-width: 1000px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h3 {
+      font-size: 1.8rem;
+      color: #0078f3;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2rem; }
+      header p, section p { font-size: 0.95rem; }
+      .btn { padding: 12px 28px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="شعار منصة Smart">
+    <h1>منصة Smart</h1>
+    <h2>الكيمياء بشكل مختلف 🔥</h2>
+    <p>
+      مع <strong>الأستاذ محمد عبدالصبور</strong>، الكيمياء مش مجرد معادلات،  
+      دي تجربة تفاعلية ممتعة هتخليك تفهم وتستمتع في نفس الوقت.  
+      دروس، اختبارات، محاضرات مرئية، وتطبيقات عملية — كل ده في منصة واحدة!
+    </p>
+    <a href="#" class="btn">تحميل المنصة الآن</a>
+  </header>
+
+  <section id="features">
+    <h3>مميزات منصة Smart</h3>
+    <p>
+      ✅ شرح مبسط بأسلوب سهل وممتع.<br>
+      🎓 اختبارات تفاعلية بعد كل درس.<br>
+      💡 متابعة الأداء وتقييم المستوى.<br>
+      🧪 محتوى مرئي وعملي لتطبيق المفاهيم الكيميائية.<br>
+      📱 تصميم ذكي وسهل الاستخدام على كل الأجهزة.
+    </p>
+  </section>
+
+  <section id="vision">
+    <h3>رؤيتنا</h3>
+    <p>
+      هدفنا إن كل طالب يحب الكيمياء ويفهمها، مش يحفظها.  
+      Smart بتقدم محتوى يربط بين الفهم والتطبيق، علشان تكون مستعد لأي امتحان بثقة.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 منصة Smart - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    // ظهور الأقسام عند التمرير
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add("visible");
+      });
+    });
+  </script>
+
+</body>
+</html>
