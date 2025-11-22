@@ -1,89 +1,220 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حل المشكلات</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة Smart - الكيمياء بشكل مختلف</title>
+  <meta name="description" content="منصة Smart - الكيمياء بشكل مختلف. تعلم الكيمياء بطريقة عصرية وممتعة بإشراف الأستاذ محمد عبدالصبور.">
 
-<style>
-  body {
-    font-family: sans-serif;
-    padding: 20px;
-    background: #f2f6fc;
-  }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
-  .btn {
-    background: #0078f3;
-    color: #fff;
-    border: none;
-    padding: 14px 22px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-size: 17px;
-    margin-top: 10px;
-    box-shadow: 0 4px 12px rgba(0,120,243,0.25);
-    transition: 0.2s;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
 
-  .btn:hover {
-    transform: scale(0.97);
-  }
+    body {
+      background: linear-gradient(120deg, #f8fbff, #e3f2ff, #f8fbff);
+      background-size: 300% 300%;
+      animation: bgMove 10s ease infinite;
+      color: #0d1b2a;
+      overflow-x: hidden;
+    }
 
-  #videoBox {
-    width: 100%;
-    max-width: 900px;
-    margin: 25px auto 0;
-    padding: 15px;
-    border: 6px solid transparent;
-    border-image: linear-gradient(135deg, #0078f3, #00b4ff) 1;
-    border-radius: 20px;
-    background: #ffffff;
-    box-shadow: 0 8px 25px rgba(0,120,243,0.15);
-    display: none;
-    animation: fadeIn 0.7s ease;
-  }
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  #videoBox iframe {
-    width: 100%;
-    height: 420px;
-    border-radius: 15px;
-    background: #000;
-  }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 40px;
+      animation: fadeIn 1.5s ease;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    header img {
+      width: 130px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 3px 10px rgba(0,0,0,0.1));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #0078f3;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      color: #333;
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+    }
+
+    header p {
+      max-width: 650px;
+      color: #444;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #0078f3, #00b4ff);
+      color: white;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0,120,243,0.3);
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,120,243,0.4);
+    }
+
+    section {
+      text-align: center;
+      padding: 80px 20px;
+      background: white;
+      margin: 50px auto;
+      border-radius: 25px;
+      max-width: 1000px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h3 {
+      font-size: 1.8rem;
+      color: #0078f3;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+
+    /* ==== صندوق الفيديو (بوردر مائل) ==== */
+    #videoBox {
+      width: 100%;
+      max-width: 900px;
+      margin: 25px auto 0;
+      padding: 15px;
+
+      border: 6px solid transparent;
+      border-image: linear-gradient(135deg, #0078f3, #00b4ff) 1;
+
+      border-radius: 20px;
+      background: #f9fbff;
+      box-shadow: 0 8px 25px rgba(0,120,243,0.15);
+
+      display: none;
+      animation: fadeIn 0.7s ease;
+    }
+
+    #videoBox iframe {
+      width: 100%;
+      height: 420px;
+      border-radius: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<button class="btn" id="problemsBtn">شرح حل المشكلات</button>
+  <header>
+    <img src="logo.png" alt="شعار منصة Smart">
+    <h1>منصة Smart</h1>
+    <h2>الكيمياء بشكل مختلف 🔥</h2>
 
-<div id="videoBox">
-  <iframe id="ytVideo" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
+    <p>
+      مع <strong>الأستاذ محمد عبدالصبور</strong>، الكيمياء مش مجرد معادلات،  
+      دي تجربة تفاعلية ممتعة هتخليك تفهم وتستمتع في نفس الوقت.  
+      دروس مصممة بعناية ومحتوى بصري حديث يخليك تشوف الكيمياء بعين جديدة.
+    </p>
 
-<script>
-  document.getElementById("problemsBtn").addEventListener("click", () => {
-    const box = document.getElementById("videoBox");
-    const video = document.getElementById("ytVideo");
+    <a href="https://www.mediafire.com/file/994531is2jezg47/🔥+إضغط+هنا+لتحميل+المنصة+🔥.apk/file" class="btn" download>
+      تحميل المنصة الآن
+    </a>
 
-    if (box.style.display === "none") {
-      box.style.display = "block";
+    <!-- زر شرح حل المشكلات -->
+    <button class="btn" id="problemsBtn">شرح حل المشكلات</button>
 
-      // رابط الشورت بعد التحويل
-      video.src = "https://www.youtube.com/embed/elSopKmrpv0";
-    } else {
-      box.style.display = "none";
-      video.src = "";
-    }
-  });
-</script>
+    <!-- صندوق الفيديو -->
+    <div id="videoBox">
+      <iframe id="ytVideo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+  </header>
+
+  <section id="features">
+    <h3>مميزات منصة Smart</h3>
+    <p>
+      ✅ شرح مبسط بأسلوب سهل وممتع.<br>
+      💡 محتوى مرئي وعملي لتطبيق المفاهيم الكيميائية.<br>
+      🎥 محاضرات منظمة ومصنفة حسب الفصول الدراسية.<br>
+      📱 تصميم ذكي وسهل الاستخدام على كل الأجهزة.<br>
+    </p>
+  </section>
+
+  <section id="vision">
+    <h3>رؤيتنا</h3>
+    <p>
+      هدفنا إن كل طالب يحب الكيمياء ويفهمها، مش يحفظها.  
+      Smart بتقدّم تجربة تعليمية مختلفة تمامًا،  
+      تخليك تشوف الجمال الحقيقي للعلم وتفهمه بعقلك قبل ورقتك.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 منصة Smart - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    // ظهور الأقسام في التمرير
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add("visible");
+      });
+    });
+  </script>
 
 </body>
 </html>
