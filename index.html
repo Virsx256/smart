@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>منصة Smart - الكيمياء بشكل مختلف</title>
   <meta name="description" content="منصة Smart - الكيمياء بشكل مختلف. تعلم الكيمياء بطريقة عصرية وممتعة بإشراف الأستاذ محمد عبدالصبور.">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
@@ -81,6 +82,7 @@
       text-decoration: none;
       transition: all 0.4s ease;
       box-shadow: 0 5px 15px rgba(0,120,243,0.3);
+      margin-top: 15px;
     }
 
     .btn:hover {
@@ -112,14 +114,6 @@
       margin-bottom: 20px;
     }
 
-    section p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: #444;
-      font-size: 1rem;
-      line-height: 1.9;
-    }
-
     footer {
       text-align: center;
       padding: 30px 10px;
@@ -127,30 +121,64 @@
       color: #666;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+
+    /* ==== صندوق الفيديو (بوردر مائل) ==== */
+    #videoBox {
+      width: 100%;
+      max-width: 900px;
+      margin: 25px auto 0;
+      padding: 15px;
+
+      border: 6px solid transparent;
+      border-image: linear-gradient(135deg, #0078f3, #00b4ff) 1;
+
+      border-radius: 20px;
+      background: #f9fbff;
+      box-shadow: 0 8px 25px rgba(0,120,243,0.15);
+
+      display: none;
+      animation: fadeIn 0.7s ease;
     }
 
-    @media (max-width: 700px) {
-      header h1 { font-size: 2rem; }
-      header p, section p { font-size: 0.95rem; }
-      .btn { padding: 12px 28px; font-size: 1rem; }
+    #videoBox iframe {
+      width: 100%;
+      height: 420px;
+      border-radius: 15px;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
   </style>
 </head>
+
 <body>
 
   <header>
     <img src="logo.png" alt="شعار منصة Smart">
     <h1>منصة Smart</h1>
     <h2>الكيمياء بشكل مختلف 🔥</h2>
+
     <p>
       مع <strong>الأستاذ محمد عبدالصبور</strong>، الكيمياء مش مجرد معادلات،  
       دي تجربة تفاعلية ممتعة هتخليك تفهم وتستمتع في نفس الوقت.  
       دروس مصممة بعناية ومحتوى بصري حديث يخليك تشوف الكيمياء بعين جديدة.
     </p>
-    <a href="https://www.mediafire.com/file/994531is2jezg47/🔥+إضغط+هنا+لتحميل+المنصة+🔥.apk/file" class="btn" download>تحميل المنصة الآن</a>
+
+    <a href="https://www.mediafire.com/file/994531is2jezg47/🔥+إضغط+هنا+لتحميل+المنصة+🔥.apk/file" class="btn" download>
+      تحميل المنصة الآن
+    </a>
+
+    <!-- زر شرح حل المشكلات -->
+    <button class="btn" id="problemsBtn">حل المشكلات</button>
+
+    <!-- صندوق الفيديو -->
+    <div id="videoBox">
+      <iframe id="ytVideo" src="" allowfullscreen></iframe>
+    </div>
+
   </header>
 
   <section id="features">
@@ -160,7 +188,6 @@
       💡 محتوى مرئي وعملي لتطبيق المفاهيم الكيميائية.<br>
       🎥 محاضرات منظمة ومصنفة حسب الفصول الدراسية.<br>
       📱 تصميم ذكي وسهل الاستخدام على كل الأجهزة.<br>
-      🧠 تبسيط المفاهيم الصعبة بطريقة حديثة وشيّقة.
     </p>
   </section>
 
@@ -178,7 +205,7 @@
   </footer>
 
   <script>
-    // حركة ظهور الأقسام عند التمرير
+    // ظهور الأقسام في التمرير
     const sections = document.querySelectorAll("section");
     window.addEventListener("scroll", () => {
       const trigger = window.innerHeight * 0.8;
@@ -186,6 +213,17 @@
         const top = sec.getBoundingClientRect().top;
         if (top < trigger) sec.classList.add("visible");
       });
+    });
+
+    // تشغيل الفيديو عند الضغط على زر (شرح حل المشكلات)
+    document.getElementById("problemsBtn").addEventListener("click", () => {
+      const videoBox = document.getElementById("videoBox");
+      const ytVideo = document.getElementById("ytVideo");
+
+      ytVideo.src = "https://youtube.com/shorts/elSopKmrpv0?si=oGUmnSxDUqi4EMqD"; // ← غيّر VIDEO_ID فقط
+      videoBox.style.display = "block";
+
+      videoBox.scrollIntoView({ behavior: "smooth" });
     });
   </script>
 
