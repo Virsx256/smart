@@ -214,6 +214,16 @@
         if (top < trigger) sec.classList.add("visible");
       });
     });
+
+    // تشغيل الفيديو عند الضغط على زر (شرح حل المشكلات)
+    document.getElementById("problemsBtn").addEventListener("click", () => {
+      const videoBox = document.getElementById("videoBox");
+      const ytVideo = document.getElementById("ytVideo");
+
+      ytVideo.src = "https://youtube.com/shorts/elSopKmrpv0?si=oGUmnSxDUqi4EMqD"; // ← غيّر VIDEO_ID فقط
+      videoBox.style.display = "block";
+
+      videoBox.scrollIntoView({ behavior: "smooth" });
   </script>
 
 </body>
